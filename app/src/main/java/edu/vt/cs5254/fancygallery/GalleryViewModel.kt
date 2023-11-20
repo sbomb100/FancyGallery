@@ -16,13 +16,25 @@ class GalleryViewModel : ViewModel() {
 
     init {
         viewModelScope.launch {
-            try {
-                val items = photoRepository.fetchPhotos(99)
-                Log.d(TAG, "Items received: $items")
-                _galleryItems.value = items
-            } catch (ex: Exception) {
-                Log.e(TAG, "Failed to fetch gallery items", ex)
+            _galleryItems.value = loadPhotos()
+        }
+    }
+    fun reloadGalleryItems(){
+        viewModelScope.launch {
+            _galleryItems.value = emptyList()
+            _galleryItems.update {
+                loadPhotos()
             }
+        }
+    }
+    private suspend fun loadPhotos(): List<GalleryItem> {
+        return try {
+            val items = photoRepository.fetchPhotos(99)
+            Log.d(TAG, "Items received: $items")
+            items
+        } catch (ex: Exception) {
+            Log.e(TAG, "Failed to fetch gallery items", ex)
+            emptyList()
         }
     }
 }
