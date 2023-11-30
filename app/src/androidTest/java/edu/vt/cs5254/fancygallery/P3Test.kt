@@ -19,7 +19,7 @@ import androidx.test.espresso.contrib.RecyclerViewActions.actionOnItemAtPosition
 import androidx.test.espresso.matcher.BoundedMatcher
 import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import edu.vt.cs5254.fancygallery.api.*
+import edu.vt.cs5254.fancygallery.*
 import org.hamcrest.BaseMatcher
 import org.hamcrest.CoreMatchers.*
 import org.hamcrest.Description

@@ -7,6 +7,8 @@ import com.squareup.moshi.*
 data class GalleryItem(
     val title: String,
     val id: String,
+    @Json(name = "latitude") val latitude : Double,
+    @Json(name = "longitude") val longitude : Double,
     @Json(name = "url_s") val url: String,
     val owner: String
 ) {
