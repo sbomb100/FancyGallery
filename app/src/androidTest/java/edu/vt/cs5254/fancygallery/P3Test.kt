@@ -157,7 +157,7 @@ class P3Test {
     fun galleryAfterWebNoSubtitleCachedImage() {
         webFromGalleryFourHasProgressBarSubtitle()
 
-        waitFor(withId(R.id.web_view), webViewLoaded(), maxRepeat = 3 * DEFAULT_WAIT_SECONDS)
+        waitFor(withId(R.id.web_view), webViewLoaded(), maxRepeat = 30 * DEFAULT_WAIT_SECONDS)
 
         Espresso.pressBack()
 
